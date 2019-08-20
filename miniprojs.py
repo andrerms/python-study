@@ -38,7 +38,7 @@ def cls():
 # Show the menu while a valid option is not selected
 while showMenu == True:
     choiceNumber = int(menu())
-    # Check if the option 
+    # Check if the option
     if choiceNumber <= len(options):
         showMenu = not options[choiceNumber-1][2]
         choiceName = options[choiceNumber-1][1]
@@ -46,3 +46,16 @@ while showMenu == True:
             choiceMsg = "Game number " + str(choiceNumber) + " is not available yet - Choose your game:"
     else:
         choiceMsg = "Option " + str(choiceNumber) + " is not valid. Choose your game:"
+
+if choiceNumber == 1:
+    diceRoll()
+elif choiceNumber == 2:
+    pass
+elif choiceNumber == 3:
+    pass
+elif choiceNumber == 4:
+    pass
+elif choiceNumber == 5:
+    pass
+else:
+    print("Error code: E001")
