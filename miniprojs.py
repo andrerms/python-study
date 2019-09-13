@@ -5,7 +5,7 @@ import random
 
 options = [
             [1, "Dice Rolling Simulator", True],
-            [2, "Guess the Number", False],
+            [2, "Guess the Number", True],
             [3, "Mad Libs Generator", False],
             [4, "TextBased Adventure Game", False],
             [5, "Hangman", False],
@@ -86,7 +86,7 @@ def showGame(choiceNumber):
         while go == "Y":
             go = str(diceRoll()).upper()
     elif choiceNumber == 2:
-        pass
+        guessNumber()
     elif choiceNumber == 3:
         pass
     elif choiceNumber == 4:
@@ -98,5 +98,35 @@ def showGame(choiceNumber):
         mainMenu(False)
     else:
         mainMenu(True)
+
+
+def guessNumber():
+    playAgain = True
+
+    while playAgain:
+        cls()
+        rnd = random.randrange(0, 101)
+
+        print("WELCOME TO GUESS THE NUMBER!")
+        print("Can you guess the number I have in my mind? (0 - 100)")
+        userGuess = input()
+
+        while str(userGuess) != str(rnd):
+            if is_int(userGuess) == False:
+                print("Numbers only! Try again...")
+            elif int(userGuess) > rnd:
+                print("Wrong answer! Think about a smaller number...")
+            else:
+                print("Wrong answer! Think about a bigger number...")
+
+            userGuess = input()
+
+        print("Congratulations! Number " + str(rnd) + " was my choice!")
+        print("Wanna play again? (Y/N)")
+        playAgain = input()
+        if str(playAgain).upper() == "Y":
+            playAgain = True
+        else:
+            playAgain = False
 
 mainMenu(True)
