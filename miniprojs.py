@@ -6,7 +6,7 @@ import random
 options = [
             [1, "Dice Rolling Simulator", True],
             [2, "Guess the Number", True],
-            [3, "Mad Libs Generator", False],
+            [3, "Mad Libs Generator", True],
             [4, "TextBased Adventure Game", False],
             [5, "Hangman", False],
             [6, "Exit the program", True]
@@ -88,7 +88,7 @@ def showGame(choiceNumber):
     elif choiceNumber == 2:
         guessNumber()
     elif choiceNumber == 3:
-        pass
+        madLibs()
     elif choiceNumber == 4:
         pass
     elif choiceNumber == 5:
@@ -109,7 +109,7 @@ def guessNumber():
 
         print("WELCOME TO GUESS THE NUMBER!")
         print("Can you guess the number I have in my mind? (0 - 100)")
-        userGuess = input()
+        userGuesas = input()
 
         while str(userGuess) != str(rnd):
             if is_int(userGuess) == False:
@@ -122,6 +122,32 @@ def guessNumber():
             userGuess = input()
 
         print("Congratulations! Number " + str(rnd) + " was my choice!")
+        print("Wanna play again? (Y/N)")
+        playAgain = input()
+        if str(playAgain).upper() == "Y":
+            playAgain = True
+        else:
+            playAgain = False
+
+def madLibs():
+    playAgain = True
+
+    while playAgain:
+        cls()
+        verb1 = ""
+        verb2 = ""
+        verb3 = ""
+        templateText = "Harry {0} into the air and the Firebolt {1} higher and faster than any other broom; he {2} around the stadium and began squinting around for the Snitch, listening all the while to the commentary, wich was being provided by the Weasley twins' friend Lee Jordan. (Harry Porter and the Prisoner of Azkaban, J.K. Rowling)" #http://nicole-singer.blogspot.com/2012/06/literary-mad-libs.html
+
+        print("WELCOME TO MAD LIBS GENERATOR!")
+        print("Please, give me a verb...")
+        verb1 = input()
+        print("Hum... Another verb, please...")
+        verb2 = input()
+        print("And guess what? One last verb. I promisse!")
+        verb3 = input()
+
+        print(templateText.format(verb1, verb2, verb3))
         print("Wanna play again? (Y/N)")
         playAgain = input()
         if str(playAgain).upper() == "Y":
