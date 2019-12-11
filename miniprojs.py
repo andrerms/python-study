@@ -109,7 +109,7 @@ def guessNumber():
 
         print("WELCOME TO GUESS THE NUMBER!")
         print("Can you guess the number I have in my mind? (0 - 100)")
-        userGuesas = input()
+        userGuess = input()
 
         while str(userGuess) != str(rnd):
             if is_int(userGuess) == False:
